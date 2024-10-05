@@ -60,12 +60,12 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
 
       - name: Install Rust for ubuntu-20.04
         if: inputs.platform == 'ubuntu-20.04'
@@ -142,7 +142,7 @@ jobs:
           retention-days: 3
 
       - name: Rust cache store
-        uses: actions/cache/save@v3
+        uses: actions/cache/save@v4
         if: steps.cache_store.outputs.cache-hit != 'true'
         with:
           path: |
